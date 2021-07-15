@@ -1,128 +1,65 @@
-import React from 'react'
+import React from 'react';
 
-function Salad() {
+interface Sal{
+   name: string; 
+   choices: { 
+       name: string;
+     }[]; 
+   related: { 
+       name: string; 
+       choices: { 
+           name: string; 
+        }[]; 
+    }[];
+}
+
+
+function Salad({food}:{food:Sal}) {
   return (
-    <div className="collapsible-menu">
-    <input type="checkbox" id="menu" />
-    <label > Salad </label>
-    <div className="menu-content">
-        <ul>
-            <li>
-              <div className="collapsible-menu">
-            <input type="checkbox" id="menu" />
-            <label >Santa Fe</label>
-            <div className="menu-content">
-                <ul>
-                    <li>
-                      <div className="collapsible-menu">
-                    <p>You might also want: </p>
-            <input type="checkbox" id="menu" />
-            <label >Dressing</label>
-            <div className="menu-content">
-                <ul>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Italian</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Blue Cheese</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Ranch</li>
+     <>
+                   <div className="card highlight-card card-small" >
 
-                </ul>
-            </div>
-            </div>
-            </li>
-                    <li>
-                      <div className="collapsible-menu">
-            <input type="checkbox" id="menu" />
-            <label >Bread</label>
-            <div className="menu-content">
-                <ul>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Italian</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Flat</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Sour Dough</li>
-
-                </ul>
-            </div>
-            </div></li>
-
-
-                </ul>
-            </div>
-            </div></li>
-
-            <li>
-              <div className="collapsible-menu">
-            <input type="checkbox" id="menu" />
-            <label >Greek</label>
-            <div className="menu-content" >
-                <ul>
-                    <li><div className="collapsible-menu">
-                    <p>You might also want: </p>
-            <input type="checkbox" id="menu" />
-            <label >Dressing</label>
-            <div className="menu-content">
-                <ul>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Italian</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Blue Cheese</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Ranch</li>
-
-                </ul>
-            </div>
-            </div></li>
-                    <li><div className="collapsible-menu">
-            <input type="checkbox" id="menu" />
-            <label >Bread</label>
-            <div className="menu-content">
-                <ul>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Italian</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Flat</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Sour Dough</li>
-
-                </ul>
-            </div>
-            </div></li>
-
-
-                </ul>
-            </div>
-            </div></li>
-
-            <li><div className="collapsible-menu">
-            <input type="checkbox" id="menu" />
-            <label >Asian</label>
-            <div className="menu-content">
-                <ul>
-                    <li><div className="collapsible-menu">
-                    <p>You might also want: </p>
-            <input type="checkbox" id="menu" />
-            <label >Dressing</label>
-            <div className="menu-content">
-                <ul>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Italian</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Blue Cheese</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Ranch</li>
-
-                </ul>
-            </div>
-            </div>
-            </li>
-                    <li>
-                      <div className="collapsible-menu">
-            <input type="checkbox" id="menu" />
-            <label >Bread</label>
-            <div className="menu-content">
-                <ul>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Italian</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Flat</li>
-                    <li><a href="#"></a><input type="checkbox" id="menu" />Sour Dough</li>
-                </ul>
-            </div>
-            </div>
-            </li>
-                </ul>
-            </div>
-            </div>
-            </li>
-        </ul>
-    </div>
 </div>
+    <div className="collapsible-menu">
+    
+<input type="checkbox" id="menu" />
+<label > {food.name} </label>
+<div className="menu-content">
+<ul>
+{food.choices.map((sub)=>
+<li>
+<div className="collapsible-menu">
+<input type="checkbox" id="menu" />                                                                                                                       
+<label >{sub.name}</label>
+<div className="menu-content">
+ <ul>
+ {food.related.map((subMenu)=>
+     <li>
+       <div className="collapsible-menu">
+     <p>You might also want: </p>
+<input type="checkbox" id="menu" />
+<label >{subMenu.name}</label>
+<div className="menu-content">
+ <ul>
+ {subMenu.choices.map((subm)=>
+     <li><input type="checkbox" id="menu" />{subm.name}</li>
+ )}
+ </ul>
+</div>
+</div>
+</li>
+ )}
+ </ul>
+</div>
+</div></li>
+
+)}
+     
+</ul>
+</div>
+</div>
+</>
+       
  )
 }
 

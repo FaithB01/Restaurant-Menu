@@ -1,9 +1,67 @@
 import React from 'react'
-import Entree from './Entree'
+import Button from './Button'
+
 import Salad from './Salad'
-import Soup from './Soup'
+import Video from './Video'
+
 
 function Menu() {
+    const menuList=[
+        {
+            name: 'Salad',
+            choices: [
+            { name: 'Santa Fe' },
+            { name: 'Greek' },
+            { name: 'Asian' },
+            ],
+            related: [
+            {
+            name: 'Dressing',
+            choices: [
+            { name: 'Italian' },
+            { name: 'Blue Cheese' },
+            { name: 'Ranch' },
+            ]
+            },
+            {
+            name: 'Bread',
+            choices: [
+            { name: 'Italian' },
+            { name: 'Flat' },
+            { name: 'Sourdough' },
+            ]
+            }
+            ]
+            },
+            {
+            name: 'Entree',
+            choices: [
+            { name: 'Steak' },
+            { name: 'Salmon' },
+            { name: 'Rice' },
+            ],
+            related: [
+            ]
+            },
+            {
+            name: 'Soup',
+            choices: [
+            { name: 'Minestrone' },
+            { name: 'Hot and sour' },
+            { name: 'Miso' },
+            ],
+            related: [
+            {
+            name: 'Bread',
+            choices: [
+            { name: 'Breadsticks'}
+            ]
+            }
+            ]
+            }
+
+    ]
+    const menus = menuList.map(food => (<Salad food={food} />))
   return (
     <>
      <section className="card-section">
@@ -12,33 +70,14 @@ function Menu() {
             <div className="flip-card__container">
                 <div className="card-front">
                     <div className="card-front__tp card-front__tp--city">
-                       {/*<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve" className="card-front__icon">
-                   <g>
-                       <path d="M49.7,22c-1.1,0-2,0.9-2,2v32.2c0,1.1,0.9,2,2,2s2-0.9,2-2V24C51.7,22.9,50.8,22,49.7,22z"/>
-                       <path d="M13,29.5c1.1,0,2-0.9,2-2s-0.9-2-2-2H5.7v-3h20.8c1.1,0,2-0.9,2-2s-0.9-2-2-2H5.7v-3h20.8c1.1,0,2-0.9,2-2s-0.9-2-2-2H5.7
-                           V7.1h24.8v15.3c0,1.1,0.9,2,2,2s2-0.9,2-2V5.1c0-1.1-0.9-2-2-2H3.7c-1.1,0-2,0.9-2,2v51c0,1.1,0.9,2,2,2s2-0.9,2-2V36.5H13
-                           c1.1,0,2-0.9,2-2s-0.9-2-2-2H5.7v-3H13z"/>
-                       <path d="M58,11.9c0-0.1,0-0.1,0-0.2c0-0.1,0-0.1-0.1-0.2c0-0.1,0-0.1-0.1-0.2c0-0.1-0.1-0.1-0.1-0.2c0,0,0-0.1-0.1-0.1c0,0,0,0,0,0
-                           c0-0.1-0.1-0.1-0.1-0.2c0,0-0.1-0.1-0.1-0.1c0,0-0.1-0.1-0.1-0.1c-0.1,0-0.1-0.1-0.2-0.1c0,0-0.1-0.1-0.2-0.1
-                           c-0.1,0-0.1-0.1-0.2-0.1c-0.1,0-0.1,0-0.2-0.1c-0.1,0-0.1,0-0.2-0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.2,0c0,0,0,0,0,0
-                           c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.2,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0.1c-0.1,0-0.1,0.1-0.2,0.1c0,0-0.1,0-0.1,0.1l-12.6,7.8
-                           c0,0,0,0,0,0c-0.1,0-0.1,0.1-0.2,0.1c0,0-0.1,0.1-0.1,0.1c0,0-0.1,0.1-0.1,0.1c0,0-0.1,0.1-0.1,0.2c0,0.1-0.1,0.1-0.1,0.2
-                           c0,0.1-0.1,0.1-0.1,0.2c0,0.1,0,0.1-0.1,0.2c0,0.1,0,0.1-0.1,0.2c0,0.1,0,0.1,0,0.2c0,0.1,0,0.1,0,0.2c0,0,0,0,0,0v5.4H22.1
-                           c-1.1,0-2,0.9-2,2v28.9c0,1.1,0.9,2,2,2s2-0.9,2-2V29.3h17.3v26.9c0,1.1,0.9,2,2,2s2-0.9,2-2V21l8.6-5.3v40.5c0,1.1,0.9,2,2,2
-                           s2-0.9,2-2V12.1C58,12,58,12,58,11.9z"/>
-                       <path d="M28,31L28,31c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S29.1,31,28,31z"/>
-                       <path d="M33.5,31L33.5,31c-1.1,0-2,0.9-2,2s0.9,2,2,2c1.1,0,2-0.9,2-2S34.6,31,33.5,31z"/>
-                       <path d="M28,36L28,36c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S29.1,36,28,36z"/>
-                       <path d="M33.5,36L33.5,36c-1.1,0-2,0.9-2,2s0.9,2,2,2c1.1,0,2-0.9,2-2S34.6,36,33.5,36z"/>
-                   </g>
-                   </svg>*/}
+                       <svg>
+                   </svg>
 
                    <h2 className="card-front__heading">
                     RESTAURANT MENU
                 </h2>
                 <p className="card-front__text-price">
-                Menu
+                Say yes to more cheese!
                 </p>
                     </div>
 
@@ -48,20 +87,22 @@ function Menu() {
                         </p>
                     </div>
                 </div>
+                <Video />
             </div>
         </div>
 
         <div className="inside-page">
             <div className="inside-page__container">
-                <h3 className="inside-page__heading inside-page__heading--city">
-                Bon Appetite  😋
-                </h3>
+                <h1 className="inside-page__heading inside-page__heading--city">
+                Bon Appétit  😋
+                </h1>
                 <p className="inside-page__text">
                     <div className="content" role="main">
+      
+{menus}
                     </div>
-                    <Salad />
-                    <Entree />
-                    <Soup />
+        
+                    <Button />
                     </p>
         </div>
     </div>
