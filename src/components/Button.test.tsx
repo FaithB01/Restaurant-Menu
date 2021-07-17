@@ -11,9 +11,10 @@ test('renders correctly',()=>{
 }
 );
  
-//test('renders button correctly',()=>{
- // const {getByTestId}=render(<Button  />);
-  //expect(getByTestId('button')).toHaveTextContent('submit')
-//})
+it('should be enabled', () => {
+  const { getByTestId } = render(<Button />);
+  expect(getByTestId('button')).toBeEnabled()
+});
+
 
 
