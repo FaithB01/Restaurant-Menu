@@ -1,67 +1,26 @@
 import React from 'react'
 import Button from './Button'
+import MainMenu from './MainMenu'
+import PropTypes from 'prop-types'
 
-import Salad from './Salad'
 import Video from './Video'
 
+interface Sal{
+    map?:any;
+    name: string; 
+    choices: { 
+        name: string;
+      }[]; 
+    related: { 
+        name: string; 
+        choices: { 
+            name: string; 
+         }[]; 
+     }[];
+ }
+ 
 
-function Menu() {
-    const menuList=[
-        {
-            name: 'Salad',
-            choices: [
-            { name: 'Santa Fe' },
-            { name: 'Greek' },
-            { name: 'Asian' },
-            ],
-            related: [
-            {
-            name: 'Dressing',
-            choices: [
-            { name: 'Italian' },
-            { name: 'Blue Cheese' },
-            { name: 'Ranch' },
-            ]
-            },
-            {
-            name: 'Bread',
-            choices: [
-            { name: 'Italian' },
-            { name: 'Flat' },
-            { name: 'Sourdough' },
-            ]
-            }
-            ]
-            },
-            {
-            name: 'Entree',
-            choices: [
-            { name: 'Steak' },
-            { name: 'Salmon' },
-            { name: 'Rice' },
-            ],
-            related: [
-            ]
-            },
-            {
-            name: 'Soup',
-            choices: [
-            { name: 'Minestrone' },
-            { name: 'Hot and sour' },
-            { name: 'Miso' },
-            ],
-            related: [
-            {
-            name: 'Bread',
-            choices: [
-            { name: 'Breadsticks'}
-            ]
-            }
-            ]
-            }
-
-    ]
-    const menus = menuList.map(food => (<Salad food={food} />))
+function Menu({menuItems}:{menuItems:Sal}) {
   return (
     <>
      <section className="card-section">
@@ -86,7 +45,7 @@ function Menu() {
                         </p>
                     </div>
                 </div>
-                <Video />
+                {/*video */}
             </div>
         </div>
 
@@ -98,7 +57,11 @@ function Menu() {
                 <p className="inside-page__text">
                     <div className="content" role="main">
       
-{menus}
+                    <div className="menu">
+            {menuItems.map((item) => (
+                <MainMenu key={item.name} menu={item} />
+            ))}
+        </div>
                     </div>
         
                     <Button />
@@ -109,6 +72,9 @@ function Menu() {
                     </section>
     </>
   )
+}
+Menu.propTypes = {
+    menuItems: PropTypes.array.isRequired
 }
 
 export default Menu;

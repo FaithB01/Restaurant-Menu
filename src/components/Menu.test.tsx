@@ -1,9 +1,36 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import ReactDom from 'react-dom';
-import Menu from './Menu';
+import React from 'react'
+import { render, unmountComponentAtNode } from 'react-dom'
+import { act } from 'react-dom/test-utils'
 
-test('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDom.render(<Menu />,div);
-});
+import Menu from './Menu'
+
+let container = null
+beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+})
+
+afterEach(() => {
+    unmountComponentAtNode(container)
+    container.remove()
+    container = null
+})
+
+it('renders the correct menu', () => {
+
+    const menuItems = [
+        { name: 'First Menu', children: [] },
+        { name: 'Second Menu', children: [] },
+        { name: 'Third Menu', children: [] },
+    ]
+
+    act(() => {
+        render(<Menu menuItems={menuItems} />, container)
+    })
+
+    expect(container.getElementsByClassName('menuItem').length).toBe(3)
+
+    for (let i = 0; i < menuItems.length; i++) {
+        expect(container.getElementsByClassName('menuItem')[i].textContent).toBe(menuItems[i].name)
+    }
+})
