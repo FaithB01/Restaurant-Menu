@@ -1,10 +1,16 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import MenuOption from './MenuOption'
+import React, { Component, Fragment } from 'react';
+import MenuOption from './MenuOption';
+
+interface Load{
+     key: string; 
+     name: any;
+      choices: any;
+}
 
 
-class MenuItem extends Component <showMenuItems> {
-    public static propTypes = {};
+
+class MenuItem extends Component <{ name: any; onSelect: any; choices: any; onSelectOption: any; }> {
+    //public static propTypes = {};
     state = {
         showMenuItems: false
     }
@@ -17,7 +23,7 @@ class MenuItem extends Component <showMenuItems> {
     }
 
     render() {
-        const { name, choices, onSelectOption } = this.props
+        const { name, choices, onSelectOption }= this.props
         return (
             <Fragment>
                 <MenuOption 
@@ -38,10 +44,6 @@ class MenuItem extends Component <showMenuItems> {
     }
 }
 
-MenuItem.propTypes = {
-    name: PropTypes.string.isRequired,
-    onSelect: PropTypes.func,
-    onSelectOption: PropTypes.func
-}
+
 
 export default MenuItem

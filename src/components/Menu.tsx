@@ -7,17 +7,18 @@ import Video from './Video'
 
 interface Sal{
     map?:any;
-    name: string; 
-    choices: { 
-        name: string;
-      }[]; 
-    related: { 
-        name: string; 
-        choices: { 
+     name: string; 
+     choices: { 
+         name: string; 
+        }[]; 
+        related: { 
             name: string; 
+            choices: { 
+                name: string; 
+            }[];
          }[]; 
-     }[];
- }
+         
+        }
  
 
 function Menu({menuItems}:{menuItems:Sal}) {

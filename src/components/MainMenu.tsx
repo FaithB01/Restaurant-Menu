@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import MenuItem from './MenuItem'
-import MenuItemHeader from './MenuItemHeader'
+import { any } from 'prop-types';
+import React, { Component, Fragment } from 'react';
+import MenuItem from './MenuItem';
+import MenuItemHeader from './MenuItemHeader';
+ 
 
-
-class MainMenu extends Component {
-    public static propTypes = {};
+class MainMenu extends Component <{menu}> {
+   // public static propTypes = {};
     state = {
         showMenuItems: false,
         showRelatedMenuItems: false,
@@ -20,12 +20,12 @@ class MainMenu extends Component {
         })
     }  
 
-    showRelatedMenuItems = (menu, option:any) => {
+    showRelatedMenuItems = (menu, option) => {
         const selectedOptions = this.state.selectedOptions.slice()
         if (selectedOptions.indexOf(option) === -1) {
-            selectedOptions.push(option)
+            selectedOptions.push(option):any;
         } else {
-            selectedOptions.pop(selectedOptions.indexOf(option))
+            selectedOptions.pop(/*selectedOptions.indexOf(option)*/)
         }
         if (selectedOptions.length === 0) {
             this.setState({ showRelatedMenuItems: false, selectedOptions })
@@ -35,7 +35,7 @@ class MainMenu extends Component {
     }
 
     render() {
-        const { menu } = this.props
+        const {menu} = this.props
         return (
             <Fragment>
                 <MenuItem
@@ -47,7 +47,7 @@ class MainMenu extends Component {
                     <div className="menuItemIndent">
                         <MenuItemHeader title="You might also want:" />
                         {menu.related.map(related => (
-                            <MenuItem
+                            <MenuItem 
                                 key={`${menu.name}-${related.name}`}
                                 name={related.name}
                                 choices={related.choices} />
@@ -57,10 +57,6 @@ class MainMenu extends Component {
             </Fragment>
         )
     }
-}
-
-MainMenu.propTypes = {
-    menu: PropTypes.object.isRequired,
 }
 
 export default MainMenu
