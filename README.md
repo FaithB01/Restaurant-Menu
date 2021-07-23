@@ -6,14 +6,14 @@
 * A code editor(Visual Studio Code-recommended)
 * Create React App (CRA)
 
-##Getting Started with Restaurant Menu App
+## Getting Started with Restaurant Menu App
 
 ### Installation
 
 clone the repo
 
 ```
-git clone https://github.com/ochomoswill/react-simple-restaurant-menu.git
+https://github.com/FaithB01/Restaurant-Menu.git
 ```
 
 install node modules
@@ -26,7 +26,7 @@ npm install
 After creation, your project should look like this:
 
 ```
-react-simple-restaurant-menu/    
+restaurant-Menu/    
 .
 +-- _node_modules
 +-- _public
