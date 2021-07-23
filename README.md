@@ -2,7 +2,8 @@
 
 ### Tools Used
 
-* Node.js and npm version 5.2
+* Node.js version 12 or above
+* npm version 5.2 or above
 * A code editor(Visual Studio Code-recommended)
 * Create React App (CRA)
 
@@ -21,7 +22,7 @@ install node modules
 npm install
 ```
 
-## Folder Structure
+## Project Structure
 
 After creation, your project should look like this:
 
