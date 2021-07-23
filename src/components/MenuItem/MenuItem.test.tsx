@@ -2,7 +2,7 @@ import React from 'react'
 import { render, unmountComponentAtNode } from 'react-dom'
 import { act } from 'react-dom/test-utils'
 
-import MenuItem from './MenuItem'
+import MenuItem from '.'
 
 let container = null
 beforeEach(() => {

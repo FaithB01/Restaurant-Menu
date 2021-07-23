@@ -1,15 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import MenuOption from './MenuOption';
+import MenuOption from '../MenuOption/MenuOption';
+import {Props } from "react-router-dom";
 
-interface Load{
+/*interface Relate{
      key: string; 
      name: any;
       choices: any;
-}
+}*/
 
 
 
-class MenuItem extends Component <{ name: any; onSelect: any; choices: any; onSelectOption: any; }> {
+class MenuItem extends Component <Props> {
     //public static propTypes = {};
     state = {
         showMenuItems: false

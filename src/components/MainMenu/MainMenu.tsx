@@ -1,7 +1,7 @@
-import { any } from 'prop-types';
+
 import React, { Component, Fragment } from 'react';
-import MenuItem from './MenuItem';
-import MenuItemHeader from './MenuItemHeader';
+import MenuItem from '../MenuItem/MenuItem';
+import MenuItemHeader from '../MenuItemHeader/MenuItemHeader';
  
 
 class MainMenu extends Component <{menu}> {
@@ -22,8 +22,8 @@ class MainMenu extends Component <{menu}> {
 
     showRelatedMenuItems = (menu, option) => {
         const selectedOptions = this.state.selectedOptions.slice()
-        if (selectedOptions.indexOf(option) === -1) {
-            selectedOptions.push(option):any;
+        if (selectedOptions.indexOf(option as never) === -1 ) {
+            selectedOptions.push(option as never)
         } else {
             selectedOptions.pop(/*selectedOptions.indexOf(option)*/)
         }

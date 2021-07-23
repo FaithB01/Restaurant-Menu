@@ -1,20 +1,19 @@
 import React from 'react'
-import Button from './Button'
-import MainMenu from './MainMenu'
-import PropTypes from 'prop-types'
+import Button from '../Button/Button'
+import MainMenu from '../MainMenu/MainMenu'
 
-import Video from './Video'
+
 
 interface Sal{
     map?:any;
-     name: string; 
-     choices: { 
-         name: string; 
+     name?: string; 
+     choices?: { 
+         name?: string; 
         }[]; 
-        related: { 
-            name: string; 
-            choices: { 
-                name: string; 
+        related?: { 
+            name?: string; 
+            choices?: { 
+                name?: string; 
             }[];
          }[]; 
          
@@ -74,8 +73,6 @@ function Menu({menuItems}:{menuItems:Sal}) {
     </>
   )
 }
-Menu.propTypes = {
-    menuItems: PropTypes.array.isRequired
-}
+
 
 export default Menu;
